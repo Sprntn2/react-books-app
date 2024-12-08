@@ -1,0 +1,164 @@
+@mixin lighterBackgroud {
+    //background-color: rgba(255, 255, 255, .25);
+    background-color: rgba(255, 255, 255, .5);
+}
+
+@mixin message{
+    @include lighterBackgroud;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    margin: auto;
+    color: #f5ad55;
+    p{
+        font-size: 2rem;
+        font-weight: 700;
+
+        text-shadow:
+        1px 0px 0 #000,
+        0px 1px 0 #000,
+        0px -1px 0 #000,
+        -1px 0px 0 #000,
+        -1px -1px 0px #000, 
+        1px -1px 0px #000,
+        1px  1px 0px #000,
+        -1px  1px 0px #000;
+    }
+}
+
+@mixin headerCircle {
+    border: 2px solid #000;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+
+    svg{
+        height: 100%;
+        width: 100%;
+    }
+
+    p{
+        font-size: .75rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@mixin transparentScrollbar {
+    overflow-y: auto;
+
+    &::-webkit-scrollbar{
+        background-color: transparent;
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        //background-color: rgba(255, 255, 255, .25);
+        background-color: rgba(255, 255, 255, .5);
+    }
+}
+
+@mixin card{
+    width: var(--bookCardWidth);
+    @include lighterBackgroud;
+    height: 250px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 15px;
+
+    .image{
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        border: 1px solid #000;
+    }
+
+    .select{
+        height: 60px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg{
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    .title{
+        height: 20px;
+    }
+}
+
+@mixin skeletonAnimation{
+    animation: shimmer 1.5s infinite;
+
+    @keyframes shimmer {
+        0% {
+          background-color: rgba(221, 221, 221, 0.2);
+        }
+        50% {
+          background-color: #ddd;
+        }
+        100% {
+          background-color: rgba(221, 221, 221, 0.2);
+        }
+      }
+}
+
+@mixin form {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    color: #fff;
+
+    .formGroup{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        display: flex;
+
+        //color: #fff;
+
+        label{
+            font-weight: 700;
+        }
+
+        .txtInput{
+            border: none;
+            outline: none;
+            height: 40px;
+            width: 70%;
+            padding: 10px;
+
+            color: #000;
+        
+            @include lighterBackgroud;
+        }
+
+        .btn{
+            //background-color: rgba($color: #000000, $alpha: 0.25);
+            background-color: rgba($color: #000000, $alpha: 0.75);
+            width: 70%;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+    }
+
+    .formGroup:has(.btn){
+        padding-top: 50px;
+    }
+}
