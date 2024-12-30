@@ -1,0 +1,29 @@
+@use '../../mixins.scss' as *;
+
+.heart{
+    height: 40px;
+    width: 40px;
+    
+    .selected{
+        fill: red
+    }
+    
+    .skeleton{
+        animation: shimmer 1.5s infinite;
+        @keyframes shimmer {
+            0% {
+              fill: rgba(221, 221, 221, 0.2);
+            }
+            50% {
+              fill: #ddd;
+            }
+            100% {
+              fill: rgba(221, 221, 221, 0.2);
+            }
+        }
+    }
+    
+    .notSelected{
+        fill: rgb(216, 206, 187)
+    }
+}

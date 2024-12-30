@@ -1,0 +1,28 @@
+@use '../../mixins.scss' as *;
+
+.container{
+    display: flex;
+    height: 100%;
+
+    .booksList{
+        flex-grow: 1;
+        border: 1px solid #000;
+        padding: 30px 10px;
+        height: 100%;
+        color: #f5ad55;
+
+        @include transparentScrollbar;
+        //overflow-y: hidden;
+        
+        .grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, var(--bookCardWidth));
+            gap: 20px;    
+            justify-content: space-evenly;
+        }
+    }
+    h1{
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,9 @@
+@use '../../mixins' as *;
+
+.cardSkeleton{
+    @include card;
+
+    .image{
+        @include skeletonAnimation;
+    }
+}

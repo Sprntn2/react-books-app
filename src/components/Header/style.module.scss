@@ -1,5 +1,5 @@
-@import '../../mixins.scss';
-//@use '../../mixins' as *;
+//@import '../../mixins.scss';
+@use '../../mixins' as *;
 
 .header{
     height: var(--headerHeight);
@@ -22,5 +22,12 @@
             font-size: .75rem;
             font-weight: 800;
         }
+    }
+
+    .user{
+        width: 100px;
+        display: flex;
+        justify-content: end;
+        gap: 10px;
     }
 }

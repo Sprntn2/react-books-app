@@ -1,18 +1,44 @@
 import { useNavigate } from 'react-router-dom'
 import useAuthStore from '../../stores/authStore'
 import styles from './style.module.scss'
+import { useEffect } from 'react'
 
 export default function LoginPage(){
 
     const navigate = useNavigate()
     const { login, isLoggedIn} = useAuthStore()
-    const handleSubmit = async (e) => {
+
+    useEffect(() => {
+        isLoggedIn && navigate("/")
+    }, [isLoggedIn])
+
+    const handleSubmit = (e) => {
         e.preventDefault()
+        console.log("login submit");
+        
         const formData = new FormData(e.target)
 
-        await login({email:formData.get("email"), password: formData.get("password")})
-        isLoggedIn && navigate("/")
+        //await login({email:formData.get("email"), password: formData.get("password")})
+        login({email:formData.get("email"), password: formData.get("password")})
+        //console.log("is logged in:", isLoggedIn);
+        
+        //isLoggedIn && navigate("/")
+        // if(isLoggedIn){
+        //     console.log("navigating to home page");
+        //     navigate('/')
+        // }
+        // else{
+        //     console.log("not logged in yet");
+            
+        // }
     }
+    
+    useEffect(() => {
+        //if(isLoggedIn) navigate('/')
+        console.log("isLoggedin changed to", isLoggedIn);
+        
+        if(isLoggedIn) navigate('/')
+    }, [isLoggedIn])
 
     return(
         <form className={styles.loginForm} onSubmit={handleSubmit}>

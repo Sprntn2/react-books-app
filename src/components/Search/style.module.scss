@@ -1,0 +1,19 @@
+.search{
+    height: calc(var(--headerHeight) - 50px);
+    width: 300px;
+    border-radius: calc(var(--headerHeight) / 2);
+    border: 2px solid #000;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    
+    input{
+        height: calc(var(--headerHeight) / 2);
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-size: calc(var(--headerHeight) / 4);
+        font-weight: 700;
+    }
+}
